@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Demonstrations</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>CSS Demonstrations</h1>
+    <nav>
+      <ul>
+        <li><a href="#selectors-demo">CSS Selectors</a></li>
+        <li><a href="#flexbox-demo">Flexbox</a></li>
+        <li><a href="#grid-demo">CSS Grid</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="selectors-demo" class="demo-section">
+      <h1>CSS Selectors Demo</h1>
+
+      <div class="selector-container">
+        <h2>Universal Selector (<code>*</code>)</h2>
+        <p>The universal selector (<code>*</code>) applies to all elements. In this demo, it's setting <code>box-sizing: border-box;</code> for all elements.</p>
+      </div>
+
+      <div class="selector-container">
+        <h2>Class and ID Selectors</h2>
+        <p>Class selectors (<code>.classname</code>) apply to any element with that class:</p>
+        <p class="highlight">This paragraph has the "highlight" class. Hover over me!</p>
+        
+        <p>ID selectors (<code>#idname</code>) apply to the element with that specific ID:</p>
+        <p id="special-item">This paragraph has the ID "special-item" and has special styling.</p>
+      </div>
+
+      <div class="selector-container">
+        <h2>Attribute Selectors</h2>
+        <p>Attribute selectors target elements with specific attributes:</p>
+        <p data-type="important">This paragraph has data-type="important" and is styled differently.</p>
+        <p data-type="info">This paragraph has data-type="info" and has its own style.</p>
+      </div>
+
+      <div class="selector-container">
+        <h2>Pseudo-classes</h2>
+        <p>Pseudo-classes select elements based on their state:</p>
+        <div class="interactive-item">Hover over me and click me to see different states!</div>
+        <div class="interactive-item">Try with this one too!</div>
+      </div>
+
+      <div class="selector-container">
+        <h2>Pseudo-elements</h2>
+        <p>Pseudo-elements target parts of an element:</p>
+        <p class="demo-text">This paragraph has a styled first letter using ::first-letter and an emoji after it using ::after.</p>
+      </div>
+
+      <div class="selector-container interactive-demo">
+        <h2>Interactive Demo</h2>
+        <p>Hover over the items below to see which CSS selector applies to them:</p>
+        
+        <div class="demo-items">
+          <p class="color-change" onmouseover="showSelector('.color-change')" onmouseout="hideSelector()">Class selector (.color-change)</p>
+          <p id="unique-item" class="color-change" onmouseover="showSelector('#unique-item')" onmouseout="hideSelector()">ID selector (#unique-item)</p>
+          <p data-demo="true" class="color-change" onmouseover="showSelector('[data-demo=\'true\']')" onmouseout="hideSelector()">Attribute selector (data-demo="true")</p>
+          <p class="color-change hover-demo" onmouseover="showSelector('.hover-demo:hover')" onmouseout="hideSelector()">Pseudo-class (:hover)</p>
+        </div>
+        
+        <div id="selector-display">Hover over an element to see its selector</div>
+      </div>
+    </section>
+
+    <section id="flexbox-demo" class="demo-section">
+      <h1>CSS Flexbox Demo</h1>
+
+      <div class="container">
+        <h2>Responsive Navigation Bar</h2>
+        <p>This navigation bar uses Flexbox to create a responsive layout. Toggle mobile view to see how it adjusts.</p>
+        
+        <div class="control-panel">
+          <div class="control-section">
+            <h3>Justify Content</h3>
+            <select id="justify-content" aria-label="Select justify content value">
+              <option value="space-between">space-between</option>
+              <option value="flex-start">flex-start</option>
+              <option value="flex-end">flex-end</option>
+              <option value="center">center</option>
+              <option value="space-around">space-around</option>
+              <option value="space-evenly">space-evenly</option>
+            </select>
+          </div>
+
+          <div class="control-section">
+            <button class="toggle-mobile" id="toggle-mobile-view">Toggle Mobile View</button>
+          </div>
+        </div>
+
+        <div id="navbar-demo">
+          <nav class="navbar">
+            <div class="logo">FlexNav</div>
+            <ul class="nav-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Products</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle">☰ Menu</div>
+          </nav>
+        </div>
+      </div>
+
+      <div class="container">
+        <h2>Responsive Card Layout</h2>
+        <p>These cards use Flexbox to create a responsive layout that adapts to different screen sizes.</p>
+        
+        <div class="control-panel">
+          <div class="control-section">
+            <h3>Number of Cards</h3>
+            <select id="card-count" aria-label="Select number of cards">
+              <option value="3">3 Cards</option>
+              <option value="2">2 Cards</option>
+              <option value="4">4 Cards</option>
+              <option value="6">6 Cards</option>
+            </select>
+          </div>
+          
+          <div class="control-section">
+            <h3>Card Arrangement</h3>
+            <select id="flex-wrap" aria-label="Select card arrangement">
+              <option value="wrap">wrap</option>
+              <option value="nowrap">nowrap</option>
+            </select>
+          </div>
+          
+          <div class="control-section">
+            <h3>Alignment</h3>
+            <select id="card-justify" aria-label="Select card alignment">
+              <option value="space-between">space-between</option>
+              <option value="flex-start">flex-start</option>
+              <option value="flex-end">flex-end</option>
+              <option value="center">center</option>
+              <option value="space-around">space-around</option>
+              <option value="space-evenly">space-evenly</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="card-container" id="card-container">
+          <div class="card">
+            <div class="card-image">Card Image 1</div>
+            <div class="card-content">
+              <h3>Card Title 1</h3>
+              <p>This is a card that uses flexbox for layout. It will resize and reposition based on screen size and flex properties.</p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-image">Card Image 2</div>
+            <div class="card-content">
+              <h3>Card Title 2</h3>
+              <p>This is a card that uses flexbox for layout. It will resize and reposition based on screen size and flex properties.</p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-image">Card Image 3</div>
+            <div class="card-content">
+              <h3>Card Title 3</h3>
+              <p>This is a card that uses flexbox for layout. It will resize and reposition based on screen size and flex properties.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="grid-demo" class="demo-section">
+      <h1>CSS Grid Demo</h1>
+
+      <div class="container">
+        <h2>Basic 3x3 Grid Layout</h2>
+        <p>This is a simple 3x3 grid with equal-width columns and fixed-height rows. You can adjust the number of columns and rows dynamically.</p>
+        
+        <div class="control-panel">
+          <div class="control-section">
+            <h3>Columns</h3>
+            <input type="number" id="grid-columns" min="1" max="6" value="3" aria-label="Number of columns">
+          </div>
+
+          <div class="control-section">
+            <h3>Rows</h3>
+            <input type="number" id="grid-rows" min="1" max="6" value="3" aria-label="Number of rows">
+          </div>
+
+          <div class="control-section">
+            <h3>Gap Size</h3>
+            <select id="grid-gap" aria-label="Grid gap size">
+              <option value="10px">Small (10px)</option>
+              <option value="20px">Medium (20px)</option>
+              <option value="30px">Large (30px)</option>
+            </select>
+          </div>
+
+          <div class="control-section">
+            <button id="update-grid">Update Grid</button>
+          </div>
+        </div>
+
+        <div class="grid-container grid-lines" id="basic-grid">
+          <div class="grid-item">Item 1</div>
+          <div class="grid-item">Item 2</div>
+          <div class="grid-item">Item 3</div>
+          <div class="grid-item">Item 4</div>
+          <div class="grid-item">Item 5</div>
+          <div class="grid-item">Item 6</div>
+          <div class="grid-item">Item 7</div>
+          <div class="grid-item">Item 8</div>
+          <div class="grid-item">Item 9</div>
+        </div>
+      </div>
+
+      <div class="container">
+        <h2>Responsive Image Gallery</h2>
+        <p>This image gallery uses CSS Grid to create a responsive layout that adapts to different screen sizes. You can customize the minimum and maximum column widths.</p>
+        
+        <div class="control-panel">
+          <div class="control-section">
+            <h3>Min Column Width</h3>
+            <select id="min-column-width" aria-label="Minimum column width">
+              <option value="150px">150px</option>
+              <option value="200px" selected>200px</option>
+              <option value="250px">250px</option>
+              <option value="300px">300px</option>
+            </select>
+          </div>
+
+          <div class="control-section">
+            <h3>Gap Size</h3>
+            <select id="gallery-gap" aria-label="Gallery gap size">
+              <option value="10px">Small (10px)</option>
+              <option value="15px" selected>Medium (15px)</option>
+              <option value="25px">Large (25px)</option>
+            </select>
+          </div>
+
+          <div class="control-section">
+            <h3>Featured Items</h3>
+            <button id="toggle-featured">Toggle Featured Items</button>
+          </div>
+
+          <div class="control-section">
+            <button id="update-gallery">Update Gallery</button>
+          </div>
+        </div>
+
+        <div class="gallery-container" id="gallery-grid">
+          <div class="gallery-item">Gallery 1</div>
+          <div class="gallery-item">Gallery 2</div>
+          <div class="gallery-item">Gallery 3</div>
+          <div class="gallery-item">Gallery 4</div>
+          <div class="gallery-item">Gallery 5</div>
+          <div class="gallery-item">Gallery 6</div>
+          <div class="gallery-item">Gallery 7</div>
+          <div class="gallery-item">Gallery 8</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>CSS Demonstrations - Selectors, Flexbox and Grid</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
